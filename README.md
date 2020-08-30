@@ -38,6 +38,20 @@
 - Inicialize o servidor:
 <pre><code>yarn dev:server</code></pre>
 
+# Rodando os testes
+
+- Faça um clone do projeto:
+<pre><code>git clone git@github.com:cleysondiego/sgm-frontend.git</code></pre>
+
+- Instale as dependências do projeto:
+<pre><code>yarn install</code></pre>
+
+- Rode os testes:
+<pre><code>yarn test</code></pre>
+
+- Para limpar o cache dos testes:
+<pre><code>yarn jest --clearCache</code></pre>
+
 # Features e Requisitos
 
 ## Recuperação de senha
@@ -51,7 +65,6 @@
 **RNF (Requisitos não Funcionais)**
 
 - Utilizar Mailtrap para testar envios em ambiente de desenvolvimento;
-- Utilizar Amazon SES para envios em produção;
 - O envio de e-mails deve acontecer em segundo plano (Background job);
 
 **RN (Regras de Negócios)**
