@@ -104,11 +104,14 @@
 - O usuário da secretaria poderá visualizar relatórios para acompanhamento das monitorias;
 - O relatório deverá ser dividido ano/mês e separado por curso/matéria da monitoria;
 - O usuário do professor e o usuário do monitor poderão visualizar relatórios de presença dos alunos por dia/mês;
+- O sistema deverá ter um schedule para enviar o relatório de presença do dia atual para o professor.
 
 **RN (Regras de Negócios)**
 
 - O usuário da secretaria pode visualizar o relatório completo de uma disciplina;
 - O usuário do professor e o usuário do monitor pode visualizar o relatório de presença dos alunos por dia/mês;
+- O usuário do monitor deverá ter acesso a uma rota que fará o envio da lista de presença do dia atual;
+- O schedule deverá ser enviado todos os dias às 20hs.
 
 ## Monitorias
 
