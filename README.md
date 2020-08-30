@@ -54,6 +54,19 @@
 
 # Features e Requisitos
 
+## Cadastro de usuário
+
+**RF (Requisitos Funcionais)**
+
+- O usuário da secretaria deve poder cadastrar/excluir/editar/consultar um novo usuário para secretaria;
+- O usuário da secretaria deve poder cadastrar/excluir/editar/consultar professores, monitores e monitorias;
+- O usuário da secretaria deve poder visualizar relatórios;
+
+**RN (Regras de Negócios)**
+
+- Não poderá existir dois usuários com o mesmo email;
+- Um usuário só pode ser do tipo secretaria, professor ou monitor.
+
 ## Recuperação de senha
 
 **RF (Requisitos Funcionais)**
@@ -83,3 +96,52 @@
 - O usuário não pode alterar seu email para um email já utilizado por outro usuário;
 - Para atualizar sua senha, o usuário deve informar a senha antiga;
 - Para atualizar sua senha, o usuário precisa confirmar a nova senha;
+
+## Relatório
+
+**RF (Requisitos Funcionais)**
+
+- O usuário da secretaria poderá visualizar relatórios para acompanhamento das monitorias;
+- O relatório deverá ser dividido ano/mês e separado por curso/matéria da monitoria;
+- O usuário do professor e o usuário do monitor poderão visualizar relatórios de presença dos alunos por dia/mês;
+
+**RN (Regras de Negócios)**
+
+- O usuário da secretaria pode visualizar o relatório completo de uma disciplina;
+- O usuário do professor e o usuário do monitor pode visualizar o relatório de presença dos alunos por dia/mês;
+
+## Monitorias
+
+**RF (Requisitos Funcionais)**
+
+- O usuário da secretaria deve poder cadastrar/excluir/editar/consultar monitorias;
+- A candidatura para se tornar o monitor de uma disciplina pode ser feita através de um formulário (sem usuário logado);
+- O professor pode consultar a monitoria que ele é responsável;
+
+**RN (Regras de Negócios)**
+
+- O monitor e o professor, podem estar associados apenas em uma monitoria;
+
+## Presenças
+
+**RF (Requisitos Funcionais)**
+
+- A presença deverá ser realizada pelo monitor, informando o RA do aluno presente;
+- O monitor e o professor poderão consultar as presenças;
+
+**RN (Regras de Negócios)**
+
+- O aluno não poderá ter presença 2x ou mais no mesmo dia;
+
+## Matérias
+
+**RF (Requisitos Funcionais)**
+
+- O professor poderá consultar/adicionar/alterar/deletar arquivos relacionados a matérias da sua disciplina;
+- O professor poderá consultar/adicionar/alterar/deletar links relacionados a matérias da sua disciplina;
+- O monitor poderá consultar os arquivos e links da sua disciplina;
+
+**RN (Regras de Negócios)**
+
+- O professor poderá adicionar qualquer tipo de arquivo e link na sua disciplina;
+- O monitor poderá consultar arquivos e links da sua disciplina;
