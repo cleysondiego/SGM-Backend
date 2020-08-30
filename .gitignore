@@ -4,7 +4,13 @@
 .env
 node_modules/
 temp/
-tmp/*
+!tmp/uploads/.gitkeep
+tmp/uploads/*.jpg
+tmp/uploads/*.png
+tmp/uploads/*.jpeg
 !tmp/.gitkeep
+tmp/*.jpg
+tmp/*.jpeg
+tmp/*.png
 build/
 coverage/
