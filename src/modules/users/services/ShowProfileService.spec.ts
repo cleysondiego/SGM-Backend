@@ -18,6 +18,7 @@ describe('UpdateProfile', () => {
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456',
+      user_type: 3,
     });
 
     const profile = await showProfile.execute({
