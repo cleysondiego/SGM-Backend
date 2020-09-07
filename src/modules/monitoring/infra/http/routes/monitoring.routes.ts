@@ -4,12 +4,15 @@ import { celebrate, Segments, Joi } from 'celebrate';
 import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensureAuthenticated';
 import MonitoringController from '../controllers/MonitoringController';
 
-const usersRouter = Router();
+const monitoringRouter = Router();
 const monitoringController = new MonitoringController();
 
-usersRouter.post(
+monitoringRouter.use(ensureAuthenticated);
+
+monitoringRouter.get('/:monitoring_id', monitoringController.show);
+
+monitoringRouter.post(
   '/',
-  ensureAuthenticated,
   celebrate({
     [Segments.BODY]: {
       name: Joi.string().required(),
@@ -20,4 +23,4 @@ usersRouter.post(
   monitoringController.create,
 );
 
-export default usersRouter;
+export default monitoringRouter;

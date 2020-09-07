@@ -39,21 +39,21 @@ class CreateMonitoringService {
 
     if (user?.user_type !== 3 && user?.user_type !== 4) {
       throw new AppError(
-        'Only Secretary and Coordinator able to create new Monitoring',
+        'Only Secretary and Coordinator able to create new Monitoring.',
       );
     }
 
     const teacher = await this.usersRepository.findById(teacher_id);
 
     if (!teacher) {
-      throw new AppError('Teacher not founded.');
+      throw new AppError('Teacher not found.');
     }
 
     if (monitor_id) {
       const monitor = await this.usersRepository.findById(monitor_id);
 
       if (!monitor) {
-        throw new AppError('Monitor not founded.');
+        throw new AppError('Monitor not found.');
       }
     }
 
