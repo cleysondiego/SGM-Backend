@@ -62,6 +62,13 @@
 - O usuário da secretaria deve poder cadastrar/excluir/editar/consultar professores, monitores e monitorias;
 - O usuário da secretaria deve poder visualizar relatórios;
 
+**RNF (Requisitos Não Funcionais)**
+
+- O usuário da secretaria será do tipo 4
+- O usuário do coordenador será do tipo 3
+- O usuário do professor será do tipo 2
+- O usuário do monitor será do tipo 1
+
 **RN (Regras de Negócios)**
 
 - Não poderá existir dois usuários com o mesmo email;

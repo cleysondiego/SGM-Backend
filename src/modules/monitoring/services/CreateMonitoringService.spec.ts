@@ -1,5 +1,3 @@
-// import AppError from '@shared/errors/AppError';
-
 import FakeUsersRepository from '@modules/users/repositories/fakes/FakeUsersRepository';
 import AppError from '@shared/errors/AppError';
 import FakeMonitoringRepository from '../repositories/fakes/FakeMonitoringRepository';
@@ -93,6 +91,39 @@ describe('CreateMonitoring', () => {
         name: 'test-monitoring-2',
         user_id: teacher.id,
         teacher_id: teacher.id,
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
+
+  it('should not be able to create a new monitoring if teacher or monitor not exists', async () => {
+    const coordinator = await fakeUsersRepository.create({
+      email: 'coordinatordoe@example.com',
+      name: 'Coordinator Doe',
+      password: '123456',
+      user_type: 3,
+    });
+
+    await expect(
+      createMonitoring.execute({
+        name: 'test-monitoring',
+        user_id: coordinator.id,
+        teacher_id: 'test-teacher-id',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+
+    const teacher = await fakeUsersRepository.create({
+      email: 'teacherdoe@example.com',
+      name: 'Teacher Doe',
+      password: '123456',
+      user_type: 2,
+    });
+
+    await expect(
+      createMonitoring.execute({
+        name: 'test-monitoring',
+        user_id: coordinator.id,
+        teacher_id: teacher.id,
+        monitor_id: 'test-monitor-id',
       }),
     ).rejects.toBeInstanceOf(AppError);
   });

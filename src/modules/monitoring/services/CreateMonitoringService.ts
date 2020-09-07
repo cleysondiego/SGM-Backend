@@ -43,6 +43,20 @@ class CreateMonitoringService {
       );
     }
 
+    const teacher = await this.usersRepository.findById(teacher_id);
+
+    if (!teacher) {
+      throw new AppError('Teacher not founded.');
+    }
+
+    if (monitor_id) {
+      const monitor = await this.usersRepository.findById(monitor_id);
+
+      if (!monitor) {
+        throw new AppError('Monitor not founded.');
+      }
+    }
+
     const monitoring = await this.monitoringRepository.create({
       name,
       user_id,

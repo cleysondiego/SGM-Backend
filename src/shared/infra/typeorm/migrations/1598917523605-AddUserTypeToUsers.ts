@@ -7,7 +7,7 @@ export default class AddUserTypeToUsers1598917523605
       'users',
       new TableColumn({
         name: 'user_type',
-        type: 'numeric',
+        type: 'integer',
         isNullable: false,
         default: 3,
       }),
