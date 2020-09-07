@@ -130,7 +130,7 @@
 
 **RN (Regras de Negócios)**
 
-- O monitor e o professor, podem estar associados apenas em uma monitoria;
+- O monitor deve poder ser associado em apenas em uma monitoria;
 
 ## Presenças
 

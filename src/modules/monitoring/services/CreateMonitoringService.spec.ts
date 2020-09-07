@@ -127,4 +127,45 @@ describe('CreateMonitoring', () => {
       }),
     ).rejects.toBeInstanceOf(AppError);
   });
+
+  it('should not be able to create a new monitoring when the monitor is already registered in another monitoring ', async () => {
+    const coordinator = await fakeUsersRepository.create({
+      email: 'coordinatordoe@example.com',
+      name: 'Coordinator Doe',
+      password: '123456',
+      user_type: 3,
+    });
+
+    const teacher = await fakeUsersRepository.create({
+      email: 'teacherdoe@example.com',
+      name: 'Teacher Doe',
+      password: '123456',
+      user_type: 2,
+    });
+
+    const monitor = await fakeUsersRepository.create({
+      email: 'monitordoe3@example.com',
+      name: 'Monitor Doe',
+      password: '123456',
+      user_type: 1,
+    });
+
+    const monitoring = await createMonitoring.execute({
+      name: 'test-monitoring',
+      user_id: coordinator.id,
+      teacher_id: teacher.id,
+      monitor_id: monitor.id,
+    });
+
+    expect(monitoring).toHaveProperty('id');
+
+    await expect(
+      createMonitoring.execute({
+        name: 'test-create-another-monitoring',
+        user_id: coordinator.id,
+        teacher_id: teacher.id,
+        monitor_id: monitor.id,
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
 });

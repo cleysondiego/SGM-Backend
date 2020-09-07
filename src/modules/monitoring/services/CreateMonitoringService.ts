@@ -55,6 +55,16 @@ class CreateMonitoringService {
       if (!monitor) {
         throw new AppError('Monitor not found.');
       }
+
+      const monitorAlreadyRegistered = await this.monitoringRepository.findByMonitorId(
+        monitor_id,
+      );
+
+      if (monitorAlreadyRegistered) {
+        throw new AppError(
+          'You cannot create a new monitoring with a monitor that is already registered to a another monitoring',
+        );
+      }
     }
 
     const monitoring = await this.monitoringRepository.create({

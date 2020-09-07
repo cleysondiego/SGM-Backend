@@ -17,6 +17,14 @@ class MonitoringRepository implements IMonitoringRepository {
     return allMonitoring;
   }
 
+  public async findByMonitorId(id: string): Promise<Monitoring | undefined> {
+    const monitoring = await this.ormRepository.findOne({
+      where: { monitor_id: id },
+    });
+
+    return monitoring;
+  }
+
   public async findById(id: string): Promise<Monitoring | undefined> {
     const monitoring = await this.ormRepository.findOne(id);
 
