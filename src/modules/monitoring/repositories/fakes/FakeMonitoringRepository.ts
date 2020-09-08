@@ -40,6 +40,7 @@ class MonitoringRepository implements IMonitoringRepository {
     user_id,
     teacher_id,
     monitor_id,
+    isAvailable,
   }: ICreateMonitoringDTO): Promise<Monitoring> {
     const monitoring = new Monitoring();
 
@@ -49,6 +50,7 @@ class MonitoringRepository implements IMonitoringRepository {
       user_id,
       teacher_id,
       monitor_id,
+      isAvailable,
     });
 
     this.monitorings.push(monitoring);

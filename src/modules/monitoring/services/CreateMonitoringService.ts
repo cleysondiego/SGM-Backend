@@ -12,6 +12,7 @@ interface IRequest {
   user_id: string;
   teacher_id: string;
   monitor_id?: string;
+  isAvailable?: boolean;
 }
 
 @injectable()
@@ -32,6 +33,7 @@ class CreateMonitoringService {
     user_id,
     teacher_id,
     monitor_id,
+    isAvailable,
   }: IRequest): Promise<Monitoring> {
     const monitoringExists = await this.monitoringRepository.findByName(name);
 
@@ -76,6 +78,7 @@ class CreateMonitoringService {
       user_id,
       teacher_id,
       monitor_id,
+      isAvailable,
     });
 
     await this.cacheProvider.invalidate('monitoring-list');

@@ -5,6 +5,7 @@ import { classToClass } from 'class-transformer';
 import CreateMonitoringService from '@modules/monitoring/services/CreateMonitoringService';
 import ShowMonitoringService from '@modules/monitoring/services/ShowMonitoringService';
 import ListMonitoringService from '@modules/monitoring/services/ListMonitoringService';
+import UpdateMonitoringService from '@modules/monitoring/services/UpdateMonitoringService';
 
 export default class MonitoringController {
   public async show(request: Request, response: Response): Promise<Response> {
@@ -36,6 +37,22 @@ export default class MonitoringController {
       user_id,
       teacher_id,
       monitor_id,
+    });
+
+    return response.json(classToClass(monitoring));
+  }
+
+  public async patch(request: Request, response: Response): Promise<Response> {
+    const { id, name, teacher_id, monitor_id, isAvailable } = request.body;
+
+    const updateMonitoring = container.resolve(UpdateMonitoringService);
+
+    const monitoring = await updateMonitoring.execute({
+      id,
+      name,
+      teacher_id,
+      monitor_id,
+      isAvailable,
     });
 
     return response.json(classToClass(monitoring));

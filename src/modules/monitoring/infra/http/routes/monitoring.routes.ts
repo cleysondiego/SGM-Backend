@@ -25,4 +25,18 @@ monitoringRouter.post(
   monitoringController.create,
 );
 
+monitoringRouter.patch(
+  '/',
+  celebrate({
+    [Segments.BODY]: {
+      id: Joi.string().uuid().required(),
+      name: Joi.string(),
+      teacher_id: Joi.string().uuid(),
+      monitor_id: Joi.string().uuid(),
+      isAvailable: Joi.boolean(),
+    },
+  }),
+  monitoringController.patch,
+);
+
 export default monitoringRouter;

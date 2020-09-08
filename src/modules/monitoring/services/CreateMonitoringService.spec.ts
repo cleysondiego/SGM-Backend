@@ -1,19 +1,24 @@
 import FakeUsersRepository from '@modules/users/repositories/fakes/FakeUsersRepository';
 import AppError from '@shared/errors/AppError';
+import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider';
 import FakeMonitoringRepository from '../repositories/fakes/FakeMonitoringRepository';
 import CreateMonitoringService from './CreateMonitoringService';
 
 let fakeMonitoringRepository: FakeMonitoringRepository;
 let fakeUsersRepository: FakeUsersRepository;
+let fakeCacheProvider: FakeCacheProvider;
 let createMonitoring: CreateMonitoringService;
 
 describe('CreateMonitoring', () => {
   beforeEach(() => {
     fakeMonitoringRepository = new FakeMonitoringRepository();
     fakeUsersRepository = new FakeUsersRepository();
+    fakeCacheProvider = new FakeCacheProvider();
+
     createMonitoring = new CreateMonitoringService(
       fakeMonitoringRepository,
       fakeUsersRepository,
+      fakeCacheProvider,
     );
   });
 
