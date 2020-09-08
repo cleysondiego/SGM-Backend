@@ -7,6 +7,8 @@ import MonitoringController from '../controllers/MonitoringController';
 const monitoringRouter = Router();
 const monitoringController = new MonitoringController();
 
+monitoringRouter.get('/', monitoringController.index);
+
 monitoringRouter.use(ensureAuthenticated);
 
 monitoringRouter.get('/:monitoring_id', monitoringController.show);

@@ -2,6 +2,7 @@ import { injectable, inject } from 'tsyringe';
 
 import AppError from '@shared/errors/AppError';
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
+import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider';
 import IMonitoringRepository from '../repositories/IMonitoringRepository';
 
 import Monitoring from '../infra/typeorm/entities/Monitoring';
@@ -21,6 +22,9 @@ class CreateMonitoringService {
 
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
+
+    @inject('CacheProvider')
+    private cacheProvider: ICacheProvider,
   ) {}
 
   public async execute({
@@ -73,6 +77,8 @@ class CreateMonitoringService {
       teacher_id,
       monitor_id,
     });
+
+    await this.cacheProvider.invalidate('monitoring-list');
 
     return monitoring;
   }
