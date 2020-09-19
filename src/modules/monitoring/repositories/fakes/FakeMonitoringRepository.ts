@@ -4,7 +4,7 @@ import IMonitoringRepository from '@modules/monitoring/repositories/IMonitoringR
 import ICreateMonitoringDTO from '@modules/monitoring/dtos/ICreateMonitoringDTO';
 import Monitoring from '../../infra/typeorm/entities/Monitoring';
 
-class MonitoringRepository implements IMonitoringRepository {
+class FakeMonitoringRepository implements IMonitoringRepository {
   private monitorings: Monitoring[] = [];
 
   public async findAll(): Promise<Monitoring[]> {
@@ -69,4 +69,4 @@ class MonitoringRepository implements IMonitoringRepository {
   }
 }
 
-export default MonitoringRepository;
+export default FakeMonitoringRepository;
