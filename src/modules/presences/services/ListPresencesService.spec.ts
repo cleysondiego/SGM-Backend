@@ -1,5 +1,3 @@
-// import AppError from '@shared/errors/AppError';
-
 import FakePresencesRepository from '../repositories/fakes/FakePresencesRepository';
 import ListPresencesService from './ListPresencesService';
 
@@ -41,12 +39,4 @@ describe('ShowPresences', () => {
 
     expect(listPresences).toEqual([presence1, presence2, presence3]);
   });
-
-  // it('should not be able to list a monitoring with invalid monitoring id', async () => {
-  //   await expect(
-  //     listOneMonitoring.execute({
-  //       monitoring_id: 'invalid-monitoring-id',
-  //     }),
-  //   ).rejects.toBeInstanceOf(AppError);
-  // });
 });
