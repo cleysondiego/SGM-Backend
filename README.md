@@ -137,7 +137,7 @@
 **RF (Requisitos Funcionais)**
 
 - A presença deverá ser realizada pelo monitor, informando o RA do aluno presente;
-- O monitor e o professor poderão consultar as presenças;
+- O monitor e o professor poderão consultar as presenças por monitoria;
 
 **RN (Regras de Negócios)**
 
