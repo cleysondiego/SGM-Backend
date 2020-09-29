@@ -6,10 +6,12 @@ node_modules/
 temp/
 !tmp/uploads/.gitkeep
 tmp/uploads/*.jpg
+tmp/uploads/*.pdf
 tmp/uploads/*.png
 tmp/uploads/*.jpeg
 !tmp/.gitkeep
 tmp/*.jpg
+tmp/*.pdf
 tmp/*.jpeg
 tmp/*.png
 build/

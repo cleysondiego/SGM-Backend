@@ -6,6 +6,7 @@ import passwordRouter from '@modules/users/infra/http/routes/password.routes';
 import profileRouter from '@modules/users/infra/http/routes/profile.routes';
 import monitoringRouter from '@modules/monitoring/infra/http/routes/monitoring.routes';
 import presencesRouter from '@modules/presences/infra/http/routes/presences.routes';
+import subjectRouter from '@modules/monitoring/infra/http/routes/subject.routes';
 
 const routes = Router();
 
@@ -15,5 +16,6 @@ routes.use('/password', passwordRouter);
 routes.use('/profile', profileRouter);
 routes.use('/monitoring', monitoringRouter);
 routes.use('/presences', presencesRouter);
+routes.use('/subject', subjectRouter);
 
 export default routes;

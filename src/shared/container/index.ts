@@ -15,6 +15,9 @@ import MonitoringRepository from '@modules/monitoring/infra/typeorm/repositories
 import IPresencesRepository from '@modules/presences/repositories/IPresencesRepository';
 import PresencesRepository from '@modules/presences/infra/typeorm/repositories/PresencesRepository';
 
+import ISubjectRepository from '@modules/monitoring/repositories/ISubjectRepository';
+import SubjectRepository from '@modules/monitoring/infra/typeorm/repositories/SubjectRepository';
+
 container.registerSingleton<IUsersRepository>(
   'UsersRepository',
   UsersRepository,
@@ -33,4 +36,9 @@ container.registerSingleton<IMonitoringRepository>(
 container.registerSingleton<IPresencesRepository>(
   'PresencesRepository',
   PresencesRepository,
+);
+
+container.registerSingleton<ISubjectRepository>(
+  'SubjectRepository',
+  SubjectRepository,
 );
