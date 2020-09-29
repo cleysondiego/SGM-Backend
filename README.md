@@ -147,8 +147,8 @@
 
 **RF (Requisitos Funcionais)**
 
-- O professor poderá consultar/adicionar/alterar/deletar arquivos relacionados a matérias da sua disciplina;
-- O professor poderá consultar/adicionar/alterar/deletar links relacionados a matérias da sua disciplina;
+- O professor poderá gerenciar arquivos relacionados a matérias da sua disciplina;
+- O professor poderá gerenciar links relacionados a matérias da sua disciplina;
 - O monitor poderá consultar os arquivos e links da sua disciplina;
 
 **RN (Regras de Negócios)**
