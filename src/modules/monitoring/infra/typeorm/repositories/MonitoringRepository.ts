@@ -12,7 +12,9 @@ class MonitoringRepository implements IMonitoringRepository {
   }
 
   public async findAll(): Promise<Monitoring[]> {
-    const allMonitoring = await this.ormRepository.find();
+    const allMonitoring = await this.ormRepository.find({
+      relations: ['teacher'],
+    });
 
     return allMonitoring;
   }
@@ -20,6 +22,7 @@ class MonitoringRepository implements IMonitoringRepository {
   public async findByMonitorId(id: string): Promise<Monitoring | undefined> {
     const monitoring = await this.ormRepository.findOne({
       where: { monitor_id: id },
+      relations: ['teacher'],
     });
 
     return monitoring;
