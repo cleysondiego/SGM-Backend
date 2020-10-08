@@ -28,7 +28,15 @@ export default class MonitoringController {
 
   public async create(request: Request, response: Response): Promise<Response> {
     const user_id = request.user.id;
-    const { name, teacher_id, monitor_id } = request.body;
+    const {
+      name,
+      teacher_id,
+      monitor_id,
+      isAvailable,
+      room,
+      schedule,
+      day,
+    } = request.body;
 
     const createMonitoring = container.resolve(CreateMonitoringService);
 
@@ -37,6 +45,10 @@ export default class MonitoringController {
       user_id,
       teacher_id,
       monitor_id,
+      isAvailable,
+      room,
+      schedule,
+      day,
     });
 
     return response.json(classToClass(monitoring));
