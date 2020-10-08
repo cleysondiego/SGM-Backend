@@ -25,6 +25,15 @@ class Monitoring {
   @Column()
   user_id: string;
 
+  @Column()
+  room: string;
+
+  @Column()
+  schedule: string;
+
+  @Column()
+  day: string;
+
   @ManyToMany(() => User)
   @JoinColumn({ name: 'user_id' })
   user: User;

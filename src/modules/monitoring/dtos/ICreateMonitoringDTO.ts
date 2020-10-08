@@ -4,4 +4,7 @@ export default interface ICreateMonitoringDTO {
   teacher_id: string;
   monitor_id?: string;
   isAvailable?: boolean;
+  room?: string;
+  schedule?: string;
+  day?: string;
 }

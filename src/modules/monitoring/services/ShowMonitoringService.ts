@@ -1,4 +1,5 @@
 import { injectable, inject } from 'tsyringe';
+import { isUuid } from 'uuidv4';
 
 import AppError from '@shared/errors/AppError';
 import Monitoring from '../infra/typeorm/entities/Monitoring';
@@ -16,6 +17,10 @@ class ShowMonitoringService {
   ) {}
 
   public async execute({ monitoring_id }: IRequest): Promise<Monitoring> {
+    if (!isUuid(monitoring_id)) {
+      throw new AppError('The ID must be UUID');
+    }
+
     const monitoring = await this.monitoringRepository.findById(monitoring_id);
 
     if (!monitoring) {
