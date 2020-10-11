@@ -55,7 +55,16 @@ export default class MonitoringController {
   }
 
   public async patch(request: Request, response: Response): Promise<Response> {
-    const { id, name, teacher_id, monitor_id, isAvailable } = request.body;
+    const {
+      id,
+      name,
+      teacher_id,
+      monitor_id,
+      isAvailable,
+      room,
+      schedule,
+      day,
+    } = request.body;
 
     const updateMonitoring = container.resolve(UpdateMonitoringService);
 
@@ -65,6 +74,9 @@ export default class MonitoringController {
       teacher_id,
       monitor_id,
       isAvailable,
+      room,
+      schedule,
+      day,
     });
 
     return response.json(classToClass(monitoring));
