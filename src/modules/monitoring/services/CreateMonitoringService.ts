@@ -10,7 +10,7 @@ import Monitoring from '../infra/typeorm/entities/Monitoring';
 interface IRequest {
   name: string;
   user_id: string;
-  teacher_id: string;
+  teacher_id?: string;
   monitor_id?: string;
   isAvailable?: boolean;
   room?: string;
@@ -55,10 +55,12 @@ class CreateMonitoringService {
       );
     }
 
-    const teacher = await this.usersRepository.findById(teacher_id);
+    if (teacher_id) {
+      const teacher = await this.usersRepository.findById(teacher_id);
 
-    if (!teacher) {
-      throw new AppError('Teacher not found.');
+      if (!teacher) {
+        throw new AppError('Teacher not found.');
+      }
     }
 
     if (monitor_id) {

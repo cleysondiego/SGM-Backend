@@ -18,10 +18,10 @@ monitoringRouter.post(
   celebrate({
     [Segments.BODY]: {
       name: Joi.string().required(),
-      teacher_id: Joi.string().required().uuid(),
+      teacher_id: Joi.string().uuid(),
       monitor_id: Joi.string().uuid(),
       isAvailable: Joi.boolean(),
-      room: Joi.string(),
+      room: Joi.string().allow(''),
       schedule: Joi.string(),
       day: Joi.string(),
     },
@@ -38,7 +38,7 @@ monitoringRouter.patch(
       teacher_id: Joi.string().uuid(),
       monitor_id: Joi.string().uuid(),
       isAvailable: Joi.boolean(),
-      room: Joi.string(),
+      room: Joi.string().allow(''),
       schedule: Joi.string(),
       day: Joi.string(),
     },
