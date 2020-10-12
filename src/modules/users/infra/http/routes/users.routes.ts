@@ -13,10 +13,6 @@ const usersController = new UsersController();
 const userAvatarController = new UserAvatarController();
 const upload = multer(uploadConfig.multer);
 
-usersRouter.get('/:user_type', usersController.index);
-
-usersRouter.get('/', usersController.index);
-
 usersRouter.post(
   '/',
   celebrate({
@@ -30,9 +26,14 @@ usersRouter.post(
   usersController.create,
 );
 
+usersRouter.use(ensureAuthenticated);
+
+usersRouter.get('/:user_type', usersController.index);
+
+usersRouter.get('/', usersController.index);
+
 usersRouter.patch(
   '/avatar',
-  ensureAuthenticated,
   upload.single('avatar'),
   userAvatarController.update,
 );
