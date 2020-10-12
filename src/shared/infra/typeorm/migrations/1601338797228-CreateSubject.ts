@@ -21,7 +21,7 @@ export default class CreateSubject1601338797228 implements MigrationInterface {
           {
             name: 'user_id',
             type: 'uuid',
-            isNullable: false,
+            isNullable: true,
           },
           {
             name: 'monitoring_id',
@@ -71,7 +71,7 @@ export default class CreateSubject1601338797228 implements MigrationInterface {
         columnNames: ['monitoring_id'],
         referencedColumnNames: ['id'],
         referencedTableName: 'monitoring',
-        onDelete: 'SET NULL',
+        onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       }),
     );

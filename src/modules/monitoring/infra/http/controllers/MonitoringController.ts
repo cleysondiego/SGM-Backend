@@ -6,6 +6,7 @@ import CreateMonitoringService from '@modules/monitoring/services/CreateMonitori
 import ShowMonitoringService from '@modules/monitoring/services/ShowMonitoringService';
 import ListMonitoringService from '@modules/monitoring/services/ListMonitoringService';
 import UpdateMonitoringService from '@modules/monitoring/services/UpdateMonitoringService';
+import DeleteMonitoringService from '@modules/monitoring/services/DeleteMonitoringService';
 
 export default class MonitoringController {
   public async show(request: Request, response: Response): Promise<Response> {
@@ -80,5 +81,15 @@ export default class MonitoringController {
     });
 
     return response.json(classToClass(monitoring));
+  }
+
+  public async delete(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+
+    const deleteMonitoring = container.resolve(DeleteMonitoringService);
+
+    await deleteMonitoring.execute({ id });
+
+    return response.status(204).json({});
   }
 }

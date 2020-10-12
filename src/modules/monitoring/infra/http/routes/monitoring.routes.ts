@@ -46,4 +46,6 @@ monitoringRouter.patch(
   monitoringController.patch,
 );
 
+monitoringRouter.delete('/:id', monitoringController.delete);
+
 export default monitoringRouter;

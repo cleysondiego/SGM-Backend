@@ -53,6 +53,10 @@ class MonitoringRepository implements IMonitoringRepository {
   public async save(monitoring: Monitoring): Promise<Monitoring> {
     return this.ormRepository.save(monitoring);
   }
+
+  public async deleteById(id: string): Promise<void> {
+    await this.ormRepository.delete({ id });
+  }
 }
 
 export default MonitoringRepository;

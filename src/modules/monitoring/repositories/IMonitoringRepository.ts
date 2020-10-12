@@ -8,4 +8,5 @@ export default interface IMonitoringRepository {
   findByName(name: string): Promise<Monitoring | undefined>;
   create(data: ICreateMonitoringDTO): Promise<Monitoring>;
   save(monitoring: Monitoring): Promise<Monitoring>;
+  deleteById(id: string): Promise<void>;
 }
