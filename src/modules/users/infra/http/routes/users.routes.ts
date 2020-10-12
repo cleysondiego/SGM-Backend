@@ -15,6 +15,8 @@ const upload = multer(uploadConfig.multer);
 
 usersRouter.get('/:user_type', usersController.index);
 
+usersRouter.get('/', usersController.index);
+
 usersRouter.post(
   '/',
   celebrate({
