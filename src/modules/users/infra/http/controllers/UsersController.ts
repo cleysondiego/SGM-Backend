@@ -10,7 +10,7 @@ import DeleteUserService from '@modules/users/services/DeleteUserService';
 
 export default class UsersController {
   public async show(request: Request, response: Response): Promise<Response> {
-    const user_id = request.user.id;
+    const { user_id } = request.params;
 
     const showProfile = container.resolve(ShowProfileService);
 
