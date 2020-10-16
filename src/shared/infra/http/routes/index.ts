@@ -9,9 +9,14 @@ import monitoringRouter from '@modules/monitoring/infra/http/routes/monitoring.r
 import presencesRouter from '@modules/presences/infra/http/routes/presences.routes';
 import subjectRouter from '@modules/monitoring/infra/http/routes/subject.routes';
 
+import UsersController from '@modules/users/infra/http/controllers/UsersController';
+
 const routes = Router();
 
+const usersController = new UsersController();
+
 routes.use('/users', usersRouter);
+routes.use('/show_user/:user_id', usersController.show);
 routes.use('/sessions', sessionsRouter);
 routes.use('/password', passwordRouter);
 routes.use('/profile', profileRouter);
