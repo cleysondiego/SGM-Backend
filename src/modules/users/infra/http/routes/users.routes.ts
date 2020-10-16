@@ -32,6 +32,8 @@ usersRouter.get('/:user_type', usersController.index);
 
 usersRouter.get('/', usersController.index);
 
+usersRouter.get('/user/:user_id', usersController.show);
+
 usersRouter.patch(
   '/avatar',
   upload.single('avatar'),
