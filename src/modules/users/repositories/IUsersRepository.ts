@@ -8,4 +8,5 @@ export default interface IUsersRepository {
   findByUserType(user_type: string): Promise<User[]>;
   create(data: ICreateUserDTO): Promise<User>;
   save(user: User): Promise<User>;
+  deleteById(id: string): Promise<void>;
 }

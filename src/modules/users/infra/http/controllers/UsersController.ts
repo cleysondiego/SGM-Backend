@@ -6,6 +6,7 @@ import CreateUserService from '@modules/users/services/CreateUserService';
 import ListUsersService from '@modules/users/services/ListUsersService';
 import ShowProfileService from '@modules/users/services/ShowProfileService';
 import UpdateUserService from '@modules/users/services/UpdateUserService';
+import DeleteUserService from '@modules/users/services/DeleteUserService';
 
 export default class UsersController {
   public async show(request: Request, response: Response): Promise<Response> {
@@ -57,5 +58,15 @@ export default class UsersController {
     });
 
     return response.json(classToClass(user));
+  }
+
+  public async delete(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+
+    const deleteUser = container.resolve(DeleteUserService);
+
+    await deleteUser.execute({ id });
+
+    return response.status(204).json({});
   }
 }
