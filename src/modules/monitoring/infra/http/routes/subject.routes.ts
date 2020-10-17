@@ -35,4 +35,6 @@ subjectRouter.patch(
   subjectController.update,
 );
 
+subjectRouter.delete('/:id', subjectController.delete);
+
 export default subjectRouter;

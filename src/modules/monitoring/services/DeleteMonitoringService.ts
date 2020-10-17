@@ -1,5 +1,6 @@
-import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider';
 import { injectable, inject } from 'tsyringe';
+
+import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider';
 import IMonitoringRepository from '../repositories/IMonitoringRepository';
 
 interface IRequest {

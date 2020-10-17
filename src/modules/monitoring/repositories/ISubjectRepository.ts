@@ -7,4 +7,5 @@ export default interface ISubjectRepository {
   findById(id: string): Promise<Subject | undefined>;
   create(data: ICreateSubjectDTO): Promise<Subject>;
   save(subject: Subject): Promise<Subject>;
+  deleteById(id: string): Promise<void>;
 }

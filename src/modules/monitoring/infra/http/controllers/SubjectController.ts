@@ -5,6 +5,7 @@ import { classToClass } from 'class-transformer';
 import CreateSubjectService from '@modules/monitoring/services/CreateSubjectService';
 import ListMonitoringSubjectService from '@modules/monitoring/services/ListMonitoringSubjectService';
 import ShowMonitoringSubjectService from '@modules/monitoring/services/ShowMonitoringSubjectService';
+import DeleteSubjectService from '@modules/monitoring/services/DeleteSubjectService';
 
 export default class SubjectController {
   public async show(request: Request, response: Response): Promise<Response> {
@@ -54,5 +55,15 @@ export default class SubjectController {
     });
 
     return response.json(classToClass(user));
+  }
+
+  public async delete(request: Request, response: Response): Promise<Response> {
+    const { id } = request.params;
+
+    const deleteSubject = container.resolve(DeleteSubjectService);
+
+    await deleteSubject.execute({ id });
+
+    return response.status(204).json({});
   }
 }
