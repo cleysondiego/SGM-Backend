@@ -21,6 +21,7 @@ subjectRouter.post(
   '/',
   celebrate({
     [Segments.BODY]: {
+      title: Joi.string().required(),
       monitoring_id: Joi.string().uuid().required(),
       url: Joi.string().required(),
     },
@@ -29,7 +30,7 @@ subjectRouter.post(
 );
 
 subjectRouter.patch(
-  '/:monitoring_id',
+  '/:monitoring_id/:title',
   upload.single('subjects'),
   subjectController.update,
 );

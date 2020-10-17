@@ -19,6 +19,9 @@ class Subject {
   id: string;
 
   @Column()
+  title: string;
+
+  @Column()
   url: string;
 
   @Column()

@@ -8,6 +8,7 @@ import Subject from '../infra/typeorm/entities/Subject';
 import ISubjectRepository from '../repositories/ISubjectRepository';
 
 interface IRequest {
+  title: string;
   user_id: string;
   monitoring_id: string;
   url?: string;
@@ -28,6 +29,7 @@ class CreateSubjectService {
   ) {}
 
   public async execute({
+    title,
     user_id,
     monitoring_id,
     url,
@@ -47,7 +49,12 @@ class CreateSubjectService {
       throw new AppError('Only teachers can create new subjects');
     }
 
+    if (!title) {
+      throw new AppError('Title is required');
+    }
+
     const subject = await this.subjectRepository.create({
+      title,
       monitoring_id,
       user_id,
       filename,
