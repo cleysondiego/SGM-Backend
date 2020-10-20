@@ -43,6 +43,10 @@ class SubjectRepository implements ISubjectRepository {
   public async save(subject: Subject): Promise<Subject> {
     return this.ormRepository.save(subject);
   }
+
+  public async deleteById(id: string): Promise<void> {
+    await this.ormRepository.delete({ id });
+  }
 }
 
 export default SubjectRepository;

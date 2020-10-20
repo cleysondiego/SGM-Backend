@@ -9,10 +9,14 @@ tmp/uploads/*.jpg
 tmp/uploads/*.pdf
 tmp/uploads/*.png
 tmp/uploads/*.jpeg
-!tmp/.gitkeep
+tmp/uploads/*.docx
+tmp/uploads/*.doc
 tmp/*.jpg
 tmp/*.pdf
 tmp/*.jpeg
 tmp/*.png
+tmp/*.docx
+tmp/*.doc
+!tmp/.gitkeep
 build/
 coverage/
