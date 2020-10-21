@@ -52,6 +52,7 @@ class CreateMonitoringService {
     if (user?.user_type !== 3 && user?.user_type !== 4) {
       throw new AppError(
         'Only Secretary and Coordinator able to create new Monitoring.',
+        401,
       );
     }
 
