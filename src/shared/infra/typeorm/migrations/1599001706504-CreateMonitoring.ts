@@ -32,7 +32,7 @@ export default class CreateMonitoring1599001706504
           {
             name: 'user_id',
             type: 'uuid',
-            isNullable: false,
+            isNullable: true,
           },
           {
             name: 'teacher_id',

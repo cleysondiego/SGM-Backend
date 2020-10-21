@@ -42,15 +42,18 @@ class CreateSubjectService {
     const user = await this.usersRepository.findById(user_id);
 
     if (!user) {
-      throw new AppError('User not found');
+      throw new AppError('User not found', 400);
     }
 
-    if (user.user_type !== 2) {
-      throw new AppError('Only teachers can create new subjects');
+    if (user.user_type !== 2 && user.user_type !== 3) {
+      throw new AppError(
+        'Only teachers and coordinators can create new subjects',
+        401,
+      );
     }
 
     if (!title) {
-      throw new AppError('Title is required');
+      throw new AppError('Title is required', 400);
     }
 
     const subject = await this.subjectRepository.create({

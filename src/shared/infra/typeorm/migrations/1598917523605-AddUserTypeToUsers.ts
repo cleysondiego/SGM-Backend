@@ -9,7 +9,7 @@ export default class AddUserTypeToUsers1598917523605
         name: 'user_type',
         type: 'integer',
         isNullable: false,
-        default: 3,
+        default: 1,
       }),
     );
   }

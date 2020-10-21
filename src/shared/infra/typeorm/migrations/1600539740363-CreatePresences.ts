@@ -27,7 +27,7 @@ export default class CreatePresences1600539740363
           {
             name: 'monitor_id',
             type: 'uuid',
-            isNullable: false,
+            isNullable: true,
           },
           {
             name: 'monitoring_id',
@@ -40,6 +40,11 @@ export default class CreatePresences1600539740363
           },
           {
             name: 'created_at',
+            type: 'timestamp',
+            default: 'now()',
+          },
+          {
+            name: 'updated_at',
             type: 'timestamp',
             default: 'now()',
           },
@@ -66,7 +71,7 @@ export default class CreatePresences1600539740363
         columnNames: ['monitoring_id'],
         referencedColumnNames: ['id'],
         referencedTableName: 'monitoring',
-        onDelete: 'SET NULL',
+        onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       }),
     );
