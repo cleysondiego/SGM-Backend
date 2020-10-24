@@ -1,10 +1,14 @@
 import { Request, Response } from 'express';
-import { classToClass } from 'class-transformer';
+import { container } from 'tsyringe';
+
+import ListAllPresences from '@modules/reports/services/ListAllPresences';
 
 export default class ReportsController {
   public async index(request: Request, response: Response): Promise<Response> {
-    const { monitoring_id } = request.params;
+    const listAllPresences = container.resolve(ListAllPresences);
 
-    return response.status(204).json({});
+    const allPresences = await listAllPresences.execute();
+
+    return response.json(allPresences);
   }
 }
