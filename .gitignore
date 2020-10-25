@@ -11,6 +11,7 @@ tmp/uploads/*.png
 tmp/uploads/*.jpeg
 tmp/uploads/*.docx
 tmp/uploads/*.doc
+!tmp/uploads/user.png
 tmp/*.jpg
 tmp/*.pdf
 tmp/*.jpeg
